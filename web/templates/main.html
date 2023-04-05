@@ -1,0 +1,36 @@
+
+<html>
+    <head></head>
+    <body>
+    <h1>Messages homepage - using Jijna templates!</h1>
+
+
+    
+    <div>
+        {% for message in messages_list %}
+
+            
+            <p>
+            - {{ message }}
+            </p>
+
+        {% endfor %}  
+    </div>
+
+
+    <form action="/" method="POST">
+        <div>Add your message below!</div>
+        <input type="text" name="message">
+        <input type="submit" value="Add">
+
+    </form>
+
+
+
+    <a 
+        href='/secret'>Clear messages
+    </a>
+    
+    <!-- ... -->
+    </body>
+</html>
