@@ -70,37 +70,37 @@ def get_messages():
     #return format_messages(rows) + generate_form()
 
 # These two methods generate HTML lists and forms
-def format_messages(messages):
-    output = "<ul>"
-    for message in messages:
-        # We escape the message to avoid the user sending us HTML and tricking
-        # us into rendering it.
-        escaped_message = escape(message[0])
-        output += f"<li>{escaped_message}</li>"
-    output += "</ul>"
-    return output
+# def format_messages(messages):
+#     output = "<ul>"
+#     for message in messages:
+#         # We escape the message to avoid the user sending us HTML and tricking
+#         # us into rendering it.
+#         escaped_message = escape(message[0])
+#         output += f"<li>{escaped_message}</li>"
+#     output += "</ul>"
+#     return output
 
 
-def clear_messages():
-    connection = psycopg.connect(POSTGRES_URL)
-    cursor = connection.cursor()
-    cursor.execute("DELETE FROM messages;")
+# def clear_messages():
+#     connection = psycopg.connect(POSTGRES_URL)
+#     cursor = connection.cursor()
+#     cursor.execute("DELETE FROM messages;")
 
-def generate_form(): #currently un used
-    return  """
-    <form action="/" method="POST">
-        <div>Add your message below!</div>
-        <input type="text" name="message">
-        <input type="submit" value="Add">
+# def generate_form(): #currently un used
+#     return  """
+#     <form action="/" method="POST">
+#         <div>Add your message below!</div>
+#         <input type="text" name="message">
+#         <input type="submit" value="Add">
 
-    </form>
+#     </form>
 
 
 
-    <a 
-        href='/secret'>Clear messages
-    </a>
-    """
+#     <a 
+#         href='/secret'>Clear messages
+#     </a>
+#     """
 
 # This method receives the POST request from the form above
 @app.route("/", methods=["POST"])
